@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    id "org.springframework.boot" version "2.5.12"
+    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+}
+
+apply from: rootProject.file("dependency.gradle")
+group 'com.st'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/spring/' }
+    mavenLocal()
+    mavenCentral()
+}
+
+configurations {
+    implementation {
+        exclude module: "spring-boot-starter-tomcat"
+        exclude module: "slf4j-log4j12"
+        exclude module: 'junit'
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+configurations.all {
+    // Aligning log4j dependency versions to 2.17.1
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'org.apache.logging.log4j') {
+            details.useVersion '2.17.1'
+        }
+    }
+}
+
+dependencies {
+    compileOnly libs["lombok"]
+    annotationProcessor libs["lombok"]
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation('org.springframework.boot:spring-boot-starter-data-redis')
+    implementation libs["guava"]
+    implementation libs["jackson-joda"]
+    implementation libs["orika-mapper"]
+    implementation libs["commons-text"]
+    implementation libs["hibernate-validator"]
+    implementation libs["kafka"]
+    implementation libs["csv"]
+    implementation libs["commons-pool"]
+    implementation libs["okhttp"]
+    implementation libs["httpclient"]
+    implementation libs["httpcore"]
+
+    testCompileOnly "org.projectlombok:lombok"
+    testAnnotationProcessor "org.projectlombok:lombok"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+}
+
+test {
+    useJUnitPlatform()
+}

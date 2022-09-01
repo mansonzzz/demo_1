@@ -1,0 +1,56 @@
+ext {
+    ver = [
+            utils:
+                    [
+                            //  commons
+                            guava             : "28.2-jre",
+                            lombok            : "1.18.8",
+                            joda              : "2.10.6",
+                            commonsio         : "2.6",
+                            commonstext       : "1.6",
+                            commonspool2      : "2.6.0",
+                            commonscodec      : "1.11",
+                            jacksonjoda       : "2.9.8",
+                            // utils
+                            jsr305            : "3.0.2",
+                            hibernatevalidator: "6.0.14.Final",
+                            okhttp            : "3.10.0",
+                            httpcore          : "4.4.10",
+                            httpclient        : "4.5.6",
+                            easyexcel         : "2.2.3",
+                            servletapi        : "4.0.1",
+                            orika             : "1.5.2",
+                            csv               : "4.4",
+                            // mybatis-plus
+                            mbp               : "3.4.3",
+                            // mysql
+                            mysql             : "8.0.17",
+                            // kafka
+                            kafka             : "2.7.1"
+                    ]
+    ]
+
+    libs = [
+            "lombok"             : "org.projectlombok:lombok:$ver.utils.lombok",
+            "guava"              : "com.google.guava:guava:$ver.utils.guava",
+            "joda"               : "joda-time:joda-time:$ver.utils.joda",
+            "commons-io"         : "commons-io:commons-io:$ver.utils.commonsio",
+            "commons-text"       : "org.apache.commons:commons-text:$ver.utils.commonstext",
+            "commons-pool2"      : "org.apache.commons:commons-pool2:$ver.utils.commonspool2",
+            "commons-codec"      : "commons-codec:commons-codec:$ver.utils.commonscodec",
+            "jackson-joda"       : "com.fasterxml.jackson.datatype:jackson-datatype-joda:$ver.utils.jacksonjoda",
+            "jsr305"             : "com.google.code.findbugs:jsr305:$ver.utils.jsr305",
+            "hibernate-validator": "org.hibernate.validator:hibernate-validator:$ver.utils.hibernatevalidator",
+            "okhttp"             : "com.squareup.okhttp3:okhttp:$ver.utils.okhttp",
+            "httpcore"           : "org.apache.httpcomponents:httpcore:$ver.utils.httpcore",
+            "httpclient"         : "org.apache.httpcomponents:httpclient:$ver.utils.httpclient",
+            "easyexcel"          : "com.alibaba:easyexcel:$ver.utils.easyexcel",
+            "servlet-api"        : "javax.servlet:javax.servlet-api:$ver.utils.servletapi",
+            "orika-mapper"       : "ma.glasnost.orika:orika-core:$ver.utils.orika",
+            "mybatis-plus"       : "com.baomidou:mybatis-plus-boot-starter:$ver.utils.mbp",
+            "mysql"              : "mysql:mysql-connector-java:$ver.utils.mysql",
+            "kafka"              : "org.springframework.kafka:spring-kafka:$ver.utils.kafka",
+            "csv"                : "com.opencsv:opencsv:$ver.utils.csv",
+            "commons-pool"       : "org.apache.commons:commons-pool2"
+    ]
+}
